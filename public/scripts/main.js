@@ -50,13 +50,34 @@ function createComponentUsuario(userName) {
 //==================================================================
 
 function onLoad_buttonEnviar() {
-  let buttonEnviar = document.getElementById("button_enviar");
-  buttonEnviar.onclick = function () { sendMessage() };
+  let buttonEnviar = document.getElementById("button_enviar")
+  let inputMensagem = document.getElementById("input-mensagem")
+
+  buttonEnviar.onclick = function () {
+    sendMessage()
+  };
+  inputMensagem.onkeyup = function (event) {
+    if (event.key === "Enter") {
+      sendMessage()
+    }
+  };
 }
+
 function sendMessage() {
   var user = { name: "Igor" };
-  let inputMensagem = document.getElementById("input-mensagem");
+  let inputMensagem = document.getElementById("input-mensagem")
+  var sklListMessage = document.querySelector(".skl_list_message");
+
+
   createComponentMessage(user.name, inputMensagem.value)
+
+  inputMensagem.value = ""
+  sklListMessage.scrollTop = sklListMessage.scrollHeight;
+  inputMensagem.focus()
+}
+
+function updateScroll() {
+
 }
 
 window.addEventListener('load', function () {
