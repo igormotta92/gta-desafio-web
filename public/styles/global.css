@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --espaco_padrao: 16px;
+  --raio_borda: 15px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f1f5f9;
+}
