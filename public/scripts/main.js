@@ -10,7 +10,7 @@ var animatedChat = setInterval(function () {
       receivedMessage.message
     );
   }
-  if (chat.length == 0) {
+  if (chat && chat.length == 0) {    
     onLoadGetMessages();
   }
 }, 1000);
