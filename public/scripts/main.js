@@ -10,7 +10,7 @@ var animatedChat = setInterval(function () {
       receivedMessage.message
     );
   }
-  if (chat.length == 0) {    
+  if (chat.length == 0) {
     onLoadGetMessages();
   }
 }, 1000);
@@ -35,6 +35,7 @@ function createComponentMessage(userMenssage, mensagem) {
   novaMensagem.innerHTML = content;
 
   listMensagem.appendChild(novaMensagem);
+  updateScroll()
 }
 
 //==================================================================
@@ -76,18 +77,17 @@ function onLoadButtonEnviar() {
 function sendMessage() {
   var user = { name: "Igor" };
   let inputMensagem = document.getElementById("input-mensagem")
-  var sklListMessage = document.querySelector(".skl_list_message");
-
 
   createComponentMessage(user.name, inputMensagem.value)
 
   inputMensagem.value = ""
-  sklListMessage.scrollTop = sklListMessage.scrollHeight;
   inputMensagem.focus()
+  updateScroll()
 }
 
 function updateScroll() {
-
+  var sklListMessage = document.querySelector(".skl_list_message");
+  sklListMessage.scrollTop = sklListMessage.scrollHeight;
 }
 
 window.addEventListener("load", function () {

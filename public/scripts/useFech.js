@@ -19,7 +19,6 @@ const useFetch = function useFetch(
       if (typeof fnSucesso == "function") fnSucesso(data);
     })
     .catch((err) => {
-      //console.log(data);
       if (typeof fnError == "function") fnError(data);
     });
 };
