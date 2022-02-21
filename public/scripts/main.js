@@ -1,12 +1,23 @@
-'use strict';
+"use strict";
 
-function onLoad_getMessages() {
+var chat;
+
+var animatedChat = setInterval(function () {
+  if (chat && chat.length > 0) {
+    var receivedMessage = chat.pop();
+    createComponentMessage(
+      receivedMessage.user.nickname,
+      receivedMessage.message
+    );
+  }
+  if (chat.length == 0) {    
+    onLoadGetMessages();
+  }
+}, 1000);
+
+function onLoadGetMessages() {
   function fnSucesso({ data }) {
-    console.log('get-message');
-    data.map(function (list) {
-      const { user, message } = list
-      createComponentMessage(user.nickname, message);
-    });
+    chat = data;
   }
 
   useFetch(routes.mensagem, { fnSucesso }, {});
@@ -15,10 +26,10 @@ function onLoad_getMessages() {
 function createComponentMessage(userMenssage, mensagem) {
   let content = `
     <span class="lista_messagens__usuario">${userMenssage}</span>
-    <p>${mensagem}</p>`
+    <p>${mensagem}</p>`;
 
   let listMensagem = document.querySelector(".lista_messagens");
-  let novaMensagem = document.createElement("li")
+  let novaMensagem = document.createElement("li");
 
   novaMensagem.className = "lista_messagens__item";
   novaMensagem.innerHTML = content;
@@ -28,9 +39,8 @@ function createComponentMessage(userMenssage, mensagem) {
 
 //==================================================================
 
-function onLoad_getUsuarios() {
+function onLoadGetUsuarios() {
   function fnSucesso({ data }) {
-    console.log('get-user');
     data.map(function (list) {
       const { user } = list;
       createComponentUsuario(user.nickname);
@@ -42,14 +52,14 @@ function onLoad_getUsuarios() {
 
 function createComponentUsuario(userName) {
   var listUsuarios = document.getElementById("lista_usuarios");
-  var novoUsuario = document.createElement("li")
+  var novoUsuario = document.createElement("li");
   novoUsuario.innerHTML = userName;
   listUsuarios.appendChild(novoUsuario);
 }
 
 //==================================================================
 
-function onLoad_buttonEnviar() {
+function onLoadButtonEnviar() {
   let buttonEnviar = document.getElementById("button_enviar")
   let inputMensagem = document.getElementById("input-mensagem")
 
@@ -60,7 +70,7 @@ function onLoad_buttonEnviar() {
     if (event.key === "Enter") {
       sendMessage()
     }
-  };
+  }
 }
 
 function sendMessage() {
@@ -80,8 +90,8 @@ function updateScroll() {
 
 }
 
-window.addEventListener('load', function () {
-  onLoad_buttonEnviar();
-  onLoad_getUsuarios();
-  onLoad_getMessages();
-})
+window.addEventListener("load", function () {
+  onLoadButtonEnviar();
+  onLoadGetUsuarios();
+  onLoadGetMessages();
+});
