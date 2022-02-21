@@ -247,6 +247,46 @@
             "nickname": "Igor",
             "email": "igor@gta.com"
           }
+        },
+        {
+          "date": "2022-02-19 21:06:40",
+          "message": "Também vou lá glr, Boa noite!",
+          "group_id": 12,
+          "user": {
+            "user_id": 2,
+            "nickname": "Miguel",
+            "email": "Miguel@gta.com"
+          }
+        },
+        {
+          "date": "2022-02-19 21:07:00",
+          "message": "Tchau, Pessoal, até amanhã!",
+          "group_id": 12,
+          "user": {
+            "user_id": 3,
+            "nickname": "Thais",
+            "email": "Thais@gta.com"
+          }
+        },
+        {
+          "date": "2022-02-19 21:08:15",
+          "message": "Vlww, Boa noite a todos!",
+          "group_id": 12,
+          "user": {
+            "user_id": 1,
+            "nickname": "Bruno",
+            "email": "Bruno@gta.com"
+          }
+        },
+        {
+          "date": "2022-02-19 21:08:56",
+          "message": "Fuii, Até amanhã!",
+          "group_id": 12,
+          "user": {
+            "user_id": 4,
+            "nickname": "Junior",
+            "email": "junior@gta.com"
+          }
         }
       ]
     }
